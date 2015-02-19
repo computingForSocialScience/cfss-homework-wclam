@@ -25,11 +25,9 @@ def degree(edgeList, in_or_out):
 #print degree('testcsv.csv', 'in')
 
 def combineEdgelists(edgeList1, edgeList2):
-	df1 = readEdgeList(edgeList1)
-	df2 = readEdgeList(edgeList2)
-	fusion = df1.append(df2)
-	fusion.drop_duplicates()
-	return fusion
+	combinedlLists = edgeList1.append(edgeList2)
+	combinedlLists = combinedlLists.drop_duplicates()
+	return combinedLists 
 #print combineEdgelists('testcsv.csv', 'testcsv.csv')
 
 def pandasToNetworkx(edgeList):
