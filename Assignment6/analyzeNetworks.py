@@ -49,4 +49,4 @@ def randomCentralNode(inputDiGraph):
 	randomNode = np.random.choice(edct.keys(), p = edct.values())
 	return randomNode
 
-print randomCentralNode(pandasToNetworkx("testcsv.csv"))
+#print randomCentralNode(pandasToNetworkx("testcsv.csv"))
