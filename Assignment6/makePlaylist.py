@@ -24,9 +24,9 @@ if __name__ == '__main__':
 		if i == 0:
 			continue
 		else:
-			edgeList = combineEdgelists(edgeList, getEdgeList(artist_ids[i], 2))
+			edgeList = combineEdgeLists(edgeList, getEdgeList(artist_ids[i], 2))
 #convert to networkx
-	def pandasToNetworkx2(edgeList):
+	def pandasToNetworkX2(edgeList):
 		graph = nx.DiGraph()
 		df = pd.DataFrame(edgeList)
 		if len(df.columns) > 2:
@@ -38,16 +38,25 @@ if __name__ == '__main__':
 		return graph
 
 #convert to networkx
-	g = pandasToNetworkx2(edgeList)
+	g = pandasToNetworkX2(edgeList)
 #collect random sample
 	random_artists = []
-	i = 30
-	while i > 0:
+	i = 0
+	while i != 30:
 		random_artist = randomCentralNode(g)
 		random_artists.append(random_artist)
-		i = i - 1
+		i += 1
 
 #playlist
+	"""f = open("playlist.csv", "w", encoding = 'utf-8')
+f.write('"%s", "%s", "%s"\n' % (u'artist_name',u'album_name',u'track_name'))
+for i in random_artists:
+	artist_name = i['artist_name']
+	album_name = i['album_name']
+	track_name = i['track_name']
+	f.write('"%s", "%s", "%s"\n' % (artist_name, album_name, track_name))
+f.close()"""
+
 	playlist = []
 	for a in random_artists:
 		artist_name = fetchArtistInfo(a)['name']
