@@ -61,13 +61,14 @@ if __name__ == '__main__':
 		k += 1
 
 #playlist
-	f = open("playlist.csv", "w", encoding = 'utf-8')
+	f = open("playlist.csv", "w", encoding='utf-8')
 	try:
-		f.write('"%s", "%s", "%s"\n' % (u'artist_name',u'album_name',u'track_name'))
+		f.write(u'artist_name, album_name, track_name\n')	
 		for i in playlist:
 			artist_name = i['artist_name']
 			album_name = i['album_name']
 			track_name = i['track_name']
-			f.write('"%s", "%s", "%s"\n' % (artist_name, album_name, track_name))
+			f.write(u'"%s","%s","%s"\n' % (artist_name,album_name,track_name))
+			#f.write('"'+ artist_name + '"' + ','+ '"' + album_name + '"' + ','+ '"' + track_name + '"' +'\n')
 	finally:
 		f.close()
