@@ -118,5 +118,3 @@ def add_playlist():
 if __name__ == '__main__':
     app.debug=True
     app.run()
-
-#createNewPlaylist("Nirvana")
