@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+	<title>Playlists</title>
+</head>
+<body>
+
+	<table>
+		<tr>
+			<th>Playlist ID</th>
+			<th>Playlist Name</th>
+		</tr>
+	{% for playlistId,playlistName in playlists %}
+		<tr>
+			<td>{{playlistId}}</td>
+			<td><a href=/playlist/{{playlistId}}> {{playlistName}}</a></td>
+		</tr>
+	{% endfor %}
+	</table>
+	
+</body>
+</html>
