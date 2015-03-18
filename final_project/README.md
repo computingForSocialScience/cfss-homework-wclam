@@ -18,6 +18,7 @@ The two lists are then combined into a MySQL table, where they can be manipulate
 
 Of course, we ran into our share of issues that did not allow us to get past populating the MySQL table.  Many of the issues arose were a result not of our own fault, but of the public data that we accessed.
 The initial issue that we ran into that stopped us was the collection of the data.  The code was gathering properly when we had printed individual parts, as well as putting it all together, but when it came time to append that big collection of data to a dictionary, the data became incorrectly formatted.  We found a way around the problem by simply omitting the append to the dictionary for both "table_info" and "table_data".  Returning the tuple list instead of the dictionary correctly formatted the data.
+With the bypassed .append line, I was able to populate a MySQL table with the table_info, which was good progress, I suppose.
 The issue that we have since have come across is that the table_data takes far too long to scrape the data we have programmed it to collect.  Often, the connection is aborted before the scraping is completed due to timeout restraints.
 
 Without concrete data, it is impossible to populate the MySQL table, making everything after this point a theoretical process.
