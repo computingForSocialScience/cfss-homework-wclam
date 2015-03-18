@@ -1,30 +1,38 @@
-<form action="" method="post">
+<!DOCTYPE html>
+</html>
+<head><title>Census Project</title></head>
+
+<form action="" method="get">
 
 	<br>
 
 	<label>
-		Select column:
+		Select Column:
 		<select name="column_title">
-			<option value=1>
-				Option 1
+			<option>
+			{ % for columnID, column_title in TableInfo %}
 			</option>
-			<option value=3>
-				Option 3
-			</option>
+			{% end for %}
 		</select>
-		Select State:
-		<select name="state">
-			<option value=1>
-				Option 1
+	<label>
+		Select Second Column:
+		<select name="column_title">
+			<option>
+			{ % for columnID, column_title in TableInfo %}
 			</option>
-			<option value=3>
-				Option 3
+			{% end for %}	
+		<div>
+			<label for="state">Select State:</label>
+			<option>
+				{% for states in states %}
 			</option>
-		</select>
+			{% end for %}
+		<select>		
 	</label>
 
 	<br>
 
-	<input type=submit value="Compare!">
-
+	<div class="button">
+		<button type="submit">Compare!</button>
+	<div>
 </form>
