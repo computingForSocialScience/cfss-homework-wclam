@@ -88,11 +88,11 @@ for table in census:
 """
 #TESTING
 for l in table_info_list:
-	#if len(l) != 6:
+	if len(l) != 6:
 	print len(l)
 
 #print len(table_info_list)
-"""
+
 #for q in table_data_list:
 	#if len(q) != 6:
 	#print len(q)
@@ -127,4 +127,3 @@ cur.executemany(insertQuery2,table_data_list)
 
 db.commit()
 cur.close()
-"""
