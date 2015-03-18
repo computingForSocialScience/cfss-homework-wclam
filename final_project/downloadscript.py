@@ -38,6 +38,9 @@ def gettableInfo(table_id):
 		#(table_id, table_title, denominator, column_title, col_tag,  parent_col)
 		#print tuple_list
 		#table_info.append(tuple_list)
+		"""initially used the .append line, but table_info displayed the incorrect format
+		tuple_list displayed correct format, so the .append line was omitted from the code
+		returned tuple_list instead, and the formatting was correct"""
 		#print table_info
 	#return table_info
 	return tuple_list
@@ -78,8 +81,9 @@ def gettabledata(table_id):
 						#print table_data
 		#return table_data
 	return info
-
-
+""".append line had same issue as the gettableInfo, same solution was attempted.
+The new problem arose with a timeout error-the connection would be aborted by
+the machine."""
 #run code to get data from select tables
 table_data_list = []
 for table in census:
@@ -87,6 +91,7 @@ for table in census:
 #print table_data_list
 """
 #TESTING
+#finds the length of the appended list; displays if length greater than 6
 for l in table_info_list:
 	if len(l) != 6:
 	print len(l)
@@ -117,13 +122,19 @@ cur.execute(gettabledata)
 
 insertQuery1 = '''insert into TableInfo (TableId, TableTitle, Denominator, ColumnTitle, ColumnId, ParentColId)
 values (%s, %s, %s, %s, %s, %s);'''
+
     
 cur.executemany(insertQuery1,table_info_list)
+
+"""Able to populate MySQL table with the data using the ammended code"""
 
 insertQuery2 = '''insert into TableData (TableId, FIPSCode, ColumnId, ResponseCategory, Response)
 values (%s, %s, %s, %s, %s);'''
 
 cur.executemany(insertQuery2,table_data_list)
+
+"""Unable to populate MySQL table
+attempted to modify code to use only 1 state, still failed"""
 
 db.commit()
 cur.close()
